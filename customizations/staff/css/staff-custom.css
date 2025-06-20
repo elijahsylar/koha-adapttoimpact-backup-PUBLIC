@@ -1,0 +1,261 @@
+/* Staff Interface Custom CSS - Professional Gold Theme */
+/* Extracted and cleaned for professional presentation */
+
+/* ===== GLOBAL BRAND COLORS ===== */
+:root {
+  --primary-gold: #d4bc7d;
+  --light-gold: #e5d4a1;
+  --pale-gold: #f5ebd1;
+  --border-gold: #c3ad72;
+  --text-dark: #000000;
+  --text-white: #ffffff;
+  --bg-white: #ffffff;
+  --success-green: #00a651;
+}
+
+/* ===== NAVIGATION & HEADER ===== */
+.navbar,
+#header,
+.bg-dark,
+.navbar-dark,
+.navbar-expand {
+  background-color: var(--primary-gold) !important;
+}
+
+.navbar *,
+#header *,
+.nav-link,
+.navbar-brand,
+.dropdown-item {
+  color: var(--text-dark) !important;
+}
+
+/* Search Header */
+#header_search,
+.toptabs,
+.tab-content {
+  background-color: var(--primary-gold) !important;
+}
+
+/* ===== NAVIGATION TABS ===== */
+.nav-tabs .nav-link {
+  background-color: var(--light-gold) !important;
+  color: var(--text-dark) !important;
+  border-color: var(--border-gold) !important;
+}
+
+.nav-tabs .nav-link.active {
+  background-color: var(--light-gold) !important;
+  color: var(--text-dark) !important;
+}
+
+/* Specific tab targeting */
+#circ_search-tab,
+#checkin_search-tab,
+#renew_search-tab,
+#patron_search-tab,
+#catalog_search-tab {
+  background-color: var(--primary-gold) !important;
+  color: var(--text-dark) !important;
+}
+
+#circ_search-tab.active,
+#checkin_search-tab.active,
+#renew_search-tab.active,
+#patron_search-tab.active,
+#catalog_search-tab.active {
+  background-color: var(--light-gold) !important;
+  color: var(--text-dark) !important;
+}
+
+/* Tab container */
+ul.nav.nav-tabs[role="tablist"] {
+  background-color: var(--primary-gold) !important;
+}
+
+/* ===== BUTTONS & CONTROLS ===== */
+.btn-primary,
+.btn-success,
+.btn-default,
+.btn,
+button[type="submit"],
+.input-group-addon {
+  background-color: var(--primary-gold) !important;
+  color: var(--text-dark) !important;
+}
+
+/* Search buttons specific styling */
+button i.fa-arrow-right {
+  color: var(--text-dark) !important;
+}
+
+/* ===== DROPDOWN MENUS ===== */
+.dropdown-menu {
+  background-color: var(--light-gold) !important;
+}
+
+/* ===== BREADCRUMBS ===== */
+#breadcrumbs,
+#sub-header,
+.breadcrumb {
+  background-color: var(--bg-white) !important;
+}
+
+/* ===== MAIN CONTENT LINKS ===== */
+.biglinks-list a,
+.icon_general {
+  background-color: var(--light-gold) !important;
+  color: var(--text-dark) !important;
+}
+
+/* ===== ICONS ===== */
+.fa,
+.fa-fw,
+i[class^="fa-"],
+.control-label i,
+.form-title i,
+button i,
+#circ_search-tab i,
+#checkin_search-tab i,
+#renew_search-tab i,
+#patron_search-tab i,
+#catalog_search-tab i {
+  color: var(--text-dark) !important;
+}
+
+/* ===== FORMS ===== */
+.form-title,
+.form-title span,
+.form-title i,
+.tab-title,
+.nav-link span,
+.form-title span,
+.control-text {
+  color: var(--text-dark) !important;
+}
+
+.form-content {
+  background-color: var(--bg-white) !important;
+}
+
+/* Form labels */
+label[for="findborrower"],
+label[for="findborrower"] span,
+label[for="findborrower"] i,
+label[for="ret_barcode"],
+label[for="ret_barcode"] span,
+label[for="ret_barcode"] i,
+label[for="ren_barcode"],
+label[for="ren_barcode"] span,
+label[for="ren_barcode"] i,
+label[for="searchmember"],
+label[for="searchmember"] span,
+label[for="searchmember"] i,
+label[for="search-form"],
+label[for="search-form"] span,
+label[for="search-form"] i {
+  color: var(--text-dark) !important;
+}
+
+/* ===== SYSTEM PREFERENCES (Special Green Theme) ===== */
+label[for="searchfield"],
+label[for="searchfield"] span.control-text,
+label[for="searchfield"] i.fa-cogs {
+  color: var(--text-white) !important;
+  background-color: var(--success-green) !important;
+}
+
+div:has(> label[for="searchfield"]) + .form-content + button {
+  background-color: var(--success-green) !important;
+  color: var(--text-white) !important;
+}
+
+div:has(> label[for="searchfield"]) + .form-content + button i {
+  color: var(--text-white) !important;
+}
+
+/* ===== FOOTER & VERSION INFO ===== */
+#koha_version {
+  background-color: var(--pale-gold) !important;
+}
+
+#helper {
+  background-color: var(--light-gold) !important;
+  color: var(--text-dark) !important;
+}
+
+/* ===== ACCESSIBILITY FEATURES ===== */
+.visually-hidden-focusable {
+  color: var(--text-dark) !important;
+  background-color: var(--text-dark) !important;
+  border-color: var(--text-dark) !important;
+  display: inline-block !important;
+  width: auto !important;
+  height: auto !important;
+  clip: auto !important;
+  clip-path: none !important;
+  position: static !important;
+  overflow: visible !important;
+  margin: 0 !important;
+  padding: 2px 5px !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  z-index: 9999 !important;
+}
+
+.visually-hidden-focusable:focus,
+.visually-hidden-focusable:active,
+.visually-hidden-focusable:focus-visible,
+.visually-hidden-focusable:focus-within {
+  color: var(--text-white) !important;
+  background-color: var(--text-dark) !important;
+  border-color: var(--text-dark) !important;
+  outline: 2px solid var(--text-dark) !important;
+  box-shadow: 0 0 5px var(--text-dark) !important;
+}
+
+/* ===== OVERRIDE CONFLICTING STYLES ===== */
+/* Success and status classes */
+.text-success,
+.bg-success,
+.success,
+.alert-success,
+[class*="success"],
+[class*="green"],
+[class*="available"] {
+  color: var(--text-dark) !important;
+  background-color: var(--primary-gold) !important;
+}
+
+/* Override inline styles that might conflict */
+[style*="color: green"],
+[style*="color:#00"],
+[style*="color: #0"],
+[style*="color:rgb(0,"],
+[style*="color: rgb(0,"],
+[style*="background: green"],
+[style*="background:#00"],
+[style*="background: #0"],
+[style*="background:rgb(0,"],
+[style*="background: rgb(0,"],
+[style*="background-color: green"],
+[style*="background-color:#00"],
+[style*="background-color: #0"],
+[style*="background-color:rgb(0,"],
+[style*="background-color: rgb(0,"] {
+  color: var(--text-dark) !important;
+  background-color: var(--primary-gold) !important;
+}
+
+/* ===== RESPONSIVE CONSIDERATIONS ===== */
+@media (max-width: 768px) {
+  .navbar,
+  #header {
+    padding: 0.5rem !important;
+  }
+  
+  .nav-tabs .nav-link {
+    padding: 0.25rem 0.5rem !important;
+    font-size: 0.875rem !important;
+  }
+}

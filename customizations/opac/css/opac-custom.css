@@ -1,0 +1,779 @@
+/**
+ * Koha Library UI Enhancement CSS - Professional Version
+ * Comprehensive OPAC styling with accessibility and performance optimizations
+ * Enhanced for Professional Library Enhancement System
+ */
+
+/* ===============================
+   CSS CUSTOM PROPERTIES
+   =============================== */
+:root {
+  --primary-gold: #cfb87c;
+  --primary-black: #000000;
+  --text-primary: #333333;
+  --text-secondary: #555555;
+  --text-muted: #6c757d;
+  --bg-white: #ffffff;
+  --bg-light: #f8f9fa;
+  --bg-muted: #f8f8f8;
+  --border-light: #dddddd;
+  --border-medium: #cccccc;
+  --shadow-light: rgba(0, 0, 0, 0.1);
+  --shadow-medium: rgba(0, 0, 0, 0.3);
+  --focus-color: #0077cc;
+  --error-color: #dc3545;
+  --error-text: #721c24;
+  --success-color: #28a745;
+}
+
+/* ===============================
+   ACCESSIBILITY ENHANCEMENTS
+   =============================== */
+
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Skip to main content link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--primary-black);
+  color: var(--bg-white) !important;
+  padding: 8px 16px;
+  text-decoration: none;
+  z-index: 10000;
+  border-radius: 0 0 4px 0;
+  font-weight: bold;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid var(--bg-white);
+  outline-offset: 2px;
+}
+
+/* Enhanced keyboard focus indicators */
+.keyboard-focused {
+  outline: 3px solid var(--focus-color) !important;
+  outline-offset: 3px !important;
+  box-shadow: 0 0 0 6px rgba(0, 119, 204, 0.3) !important;
+}
+
+/* Better focus visibility for all interactive elements */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--focus-color) !important;
+  outline-offset: 2px !important;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .btn-primary,
+  .btn {
+    border-width: 2px !important;
+  }
+  
+  input,
+  textarea,
+  select {
+    border-width: 2px !important;
+  }
+  
+  .custom-cover {
+    border-width: 2px !important;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .cover-image {
+    transition: none !important;
+  }
+  
+  .col-sm-6.col-lg-3:hover {
+    transform: none !important;
+  }
+}
+
+/* Better color contrast for form labels */
+label {
+  color: #212529;
+  font-weight: 600;
+}
+
+/* Required field indicators */
+label[for][required]::after,
+label:has(+ input[required])::after,
+label:has(+ select[required])::after,
+label:has(+ textarea[required])::after {
+  content: " *";
+  color: var(--error-color);
+  font-weight: bold;
+}
+
+/* Error message styling for accessibility */
+.field-error,
+[role="alert"] {
+  color: var(--error-text);
+  font-weight: 600;
+  margin-top: 5px;
+  display: block;
+}
+
+/* Improve link underlines for better visibility */
+a:not(.btn):not(.nav-link) {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+a:not(.btn):not(.nav-link):hover {
+  text-decoration-thickness: 2px;
+}
+
+/* Better button states for accessibility */
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  opacity: 0.6;
+  cursor: not-allowed;
+  filter: grayscale(0.3);
+}
+
+/* Ensure interactive elements have minimum touch target size */
+a,
+button,
+input,
+select,
+textarea,
+[role="button"],
+[tabindex] {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Exception for inline links */
+p a,
+li a,
+td a {
+  min-height: auto;
+  min-width: auto;
+}
+
+/* Focus trap indicator for modals */
+.modal.show {
+  outline: 3px solid rgba(0, 0, 0, 0.3);
+  outline-offset: -3px;
+}
+
+/* Improve form field focus */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 3px solid var(--primary-gold) !important;
+  outline-offset: 0 !important;
+  border-color: var(--primary-gold) !important;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  body.dark-mode-enabled {
+    background: #1a1a1a;
+    color: #e0e0e0;
+  }
+  
+  body.dark-mode-enabled .custom-cover {
+    background-color: #2a2a2a;
+    border-color: #444;
+    color: #e0e0e0;
+  }
+  
+  body.dark-mode-enabled input,
+  body.dark-mode-enabled textarea,
+  body.dark-mode-enabled select {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    border-color: #444;
+  }
+}
+
+/* Ensure ARIA live regions are not visually hidden */
+#aria-live-region {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Better visual hierarchy for headings */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+/* Improve table accessibility */
+table {
+  border-collapse: collapse;
+}
+
+th {
+  font-weight: bold;
+  text-align: left;
+  background-color: var(--bg-light);
+}
+
+/* Zebra striping for better row distinction */
+tr:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* Focus indicators for table rows */
+tr:focus-within {
+  outline: 2px solid var(--primary-gold);
+  outline-offset: -2px;
+}
+
+/* Loading states for better UX */
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+  position: relative;
+}
+
+.loading::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid var(--primary-gold);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ===============================
+   PERFORMANCE OPTIMIZATIONS
+   =============================== */
+.cover-slider,
+.item-thumbnail,
+.custom-cover {
+  contain: layout style;
+}
+
+.btn,
+.mobile-card,
+.col-sm-6.col-lg-3 {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.cover-slider {
+  content-visibility: auto;
+  contain-intrinsic-size: 150px 200px;
+}
+
+/* ===============================
+   COVER IMAGE SYSTEM
+   =============================== */
+
+/* Optimized Image Loading - Faster Rendering */
+.item-thumbnail {
+  width: 150px;
+  height: 200px;
+  margin: 10px auto;
+  text-align: center;
+  /* GPU optimization for smooth loading */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  /* Reserve space to prevent layout shifts */
+  contain: layout size;
+}
+
+.custom-cover {
+  width: 150px;
+  height: 200px;
+  margin: 0 auto;
+  background-color: var(--bg-muted);
+  border: 1px solid var(--border-light);
+  border-radius: 3px;
+  box-shadow: 0 1px 3px var(--shadow-light);
+  overflow: hidden;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  opacity: 1 !important;
+  visibility: visible !important;
+  /* Optimize rendering */
+  contain: layout style;
+  transform: translateZ(0);
+}
+
+.cover-image {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  /* Fast opacity transition for smooth loading */
+  transition: opacity 0.15s ease-out;
+  /* Start visible for progressive loading */
+  opacity: 1;
+  display: block;
+  /* Image rendering optimization */
+  image-rendering: optimizeSpeed;
+  transform: translateZ(0);
+}
+
+/* Show image when loaded */
+.cover-image[style*="display: block"] {
+  opacity: 1;
+}
+
+.title-placeholder {
+  padding: 15px;
+  text-align: center;
+  font-weight: bold;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  word-break: break-word;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* Smooth transition when hiding */
+  transition: opacity 0.15s ease-out;
+  /* GPU acceleration */
+  transform: translateZ(0);
+}
+
+/* Hide placeholder when image loads */
+.title-placeholder[style*="display: none"] {
+  opacity: 1;
+  pointer-events: none;
+}
+
+.missing-biblionumber .custom-cover {
+  border: 1px dashed var(--border-medium);
+  background-color: #f0f0f0;
+  /* Indicate loading state */
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Subtle loading animation */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Optimize for lazy loading */
+.cover-image[loading="lazy"] {
+  /* Prevent layout shift during lazy load */
+  min-height: 100px;
+}
+
+/* ===============================
+   BASE STYLES
+   =============================== */
+
+/* CSS Reset and Box Model Fix */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+  background: var(--bg-white);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+/* Focus Styles */
+:focus {
+  outline: 2px solid var(--primary-gold);
+  outline-offset: 2px;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+select:focus,
+textarea:focus,
+.form-control:focus,
+.table_controls .dt-input input:focus,
+.form-select:focus {
+  border-color: var(--primary-gold);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(207, 184, 124, 0.6);
+  outline: none;
+}
+
+/* ===============================
+   BUTTON SYSTEM
+   =============================== */
+
+/* Primary Button Styles */
+.btn-primary {
+  background-color: var(--primary-gold);
+  border: 1px solid var(--primary-black);
+  color: var(--primary-black);
+  transition: all 0.2s ease;
+}
+
+.btn-primary:link,
+.btn-primary:visited,
+.btn-primary:hover,
+.btn-primary:active {
+  background-color: var(--primary-gold);
+  border-color: var(--primary-black);
+  color: var(--primary-black);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 0 1px var(--primary-black);
+}
+
+.btn-primary:focus {
+  box-shadow: 0 0 0 2px var(--primary-gold);
+  outline: none;
+}
+
+/* ===============================
+   ICON SYSTEM
+   =============================== */
+
+/* Icon Styles */
+#action a:hover i.fa,
+#action a:hover i.fa-solid,
+#action button:hover i.fa,
+#action button:hover i.fa-solid {
+  color: var(--primary-gold);
+  transition: color 0.2s ease;
+}
+
+.reserve.btn,
+span.actions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+/* ===============================
+   FORM SYSTEM
+   =============================== */
+
+/* Message Box Styles */
+#booleansearch {
+  width: 80%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 2px solid var(--border-medium);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px var(--shadow-medium);
+  background-color: rgba(207, 184, 124, 0.3);
+}
+
+/* Form Styles */
+fieldset {
+  border: none;
+  margin-top: 20px;
+}
+
+legend {
+  display: none;
+}
+
+.advanced-search-terms {
+  text-align: center;
+}
+
+.form-fieldset {
+  margin: 0;
+  padding: 40px;
+}
+
+.form-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.form-item {
+  margin-bottom: 15px;
+}
+
+.form-item label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.form-item input,
+.form-item textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Checkbox and Submit Button Styles */
+.checkbox {
+  margin-bottom: 10px;
+  transform: scale(1.5);
+}
+
+input[type="submit"] {
+  display: block;
+  margin: 0 auto;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+/* ===============================
+   LAYOUT SYSTEM
+   =============================== */
+
+/* Heading Styles */
+h1 {
+  text-align: center;
+  font-size: 1.5em;
+  color: var(--text-primary);
+  margin-bottom: 1em;
+}
+
+/* Layout Styles */
+.outer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  background-color: var(--primary-gold);
+}
+
+.tab-pane {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  gap: 40px;
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  margin: 0 -10px;
+}
+
+.col-sm-6.col-lg-3 {
+  flex: 1 1 20%;
+  max-width: 300px;
+  margin: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.col-sm-6.col-lg-3:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px var(--shadow-light);
+}
+
+/* ===============================
+   NAVIGATION SYSTEM
+   =============================== */
+
+/* Navigation Styles */
+.nav-item a[href="https://demo-library.org/cgi-bin/koha/opac-main.pl"] {
+  font-weight: bold;
+}
+
+.nav-item {
+  transition: background-color 0.2s ease;
+}
+
+.nav-item:hover {
+  background-color: rgba(207, 184, 124, 0.2);
+}
+
+/* ===============================
+   TABLE SYSTEM
+   =============================== */
+
+/* User View Styles */
+#opac-user-views > ul > li:nth-child(4) > a {
+  display: none;
+}
+
+/* Table Cover Column Visibility Fix */
+#bookbag_form > table > tbody > tr:nth-child(1) > td.covercol {
+  display: table-cell !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* ===============================
+   SUGGESTIONS SYSTEM
+   =============================== */
+
+/* Suggestions Form Styling */
+#add_suggestion_form > fieldset.form-fieldset > ol {
+  margin: 0 auto;
+  width: fit-content;
+}
+
+#usersuggestions > h2 {
+  margin-top: 5px;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+/* ===============================
+   BORROWER ACKNOWLEDGEMENT
+   =============================== */
+
+/* Borrower Acknowledgement Styling */
+.new-title, 
+.new-subtitle {
+  font-family: inherit;
+}
+
+#holds form ul li {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+label input.confirmjs {
+  margin-right: 8px;
+}
+
+/* ===============================
+   UTILITY COMPONENTS
+   =============================== */
+
+/* Back to Top Button */
+#backToTop {
+  transition: opacity 0.3s ease;
+  opacity: 0.7;
+}
+
+#backToTop:hover {
+  opacity: 1;
+}
+
+/* ===============================
+   RESPONSIVE DESIGN
+   =============================== */
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .col-sm-6.col-lg-3 {
+    flex: 1 1 40%;
+  }
+  
+  .form-fieldset {
+    padding: 20px;
+  }
+  
+  .item-thumbnail {
+    width: 120px;
+    height: 160px;
+  }
+  
+  .custom-cover {
+    width: 120px;
+    height: 160px;
+  }
+  
+  h1 {
+    font-size: 1.3em;
+  }
+  
+  .btn, 
+  button,
+  input[type="submit"],
+  .nav-item a {
+    padding: 10px;
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .covercol {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .col-sm-6.col-lg-3 {
+    flex: 1 1 100%;
+  }
+  
+  #booleansearch {
+    width: 95%;
+  }
+  
+  .form-fieldset {
+    padding: 15px;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .custom-cover,
+  .item-thumbnail,
+  #backToTop {
+    display: none !important;
+  }
+  
+  body {
+    color: var(--primary-black);
+    background: var(--bg-white);
+  }
+  
+  a {
+    text-decoration: none;
+    color: var(--primary-black);
+  }
+}
