@@ -258,3 +258,29 @@ This repository contains both:
 **Files sanitized for public viewing:**
 - All code in `customizations/` - Technical demonstrations only
 - `README.md` - Professional portfolio presentation
+
+---
+
+## 🔒 **Repository Information**
+
+This is the **public portfolio showcase** containing sanitized technical demonstrations.
+
+**This repository contains:**
+- ✅ **Professional code samples** - Fully sanitized for public viewing
+- ✅ **Technical documentation** - Portfolio-focused presentation
+- ✅ **Clean commit history** - No sensitive information ever committed
+
+**All code in this repository has been sanitized:**
+- Generic institutional references ("Demo Institution" instead of real names)
+- Placeholder contact information (admin@example.org)
+- Demo URLs and branding (demo-library.org)
+- No real server paths, credentials, or operational details
+
+**For operational documentation:**
+- Real system information is maintained in a separate private repository
+- This public repository is purely for technical skill demonstration
+- All sensitive data has been removed for security
+
+---
+
+*This represents production-quality code from a professional library management system enhancement project.*
