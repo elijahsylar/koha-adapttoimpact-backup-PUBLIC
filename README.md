@@ -1,6 +1,8 @@
-# 🏛️ Professional Library System: Enterprise Library Management System
+# 🏛️ Professional Library System: Enterprise Library Management Enhancement
 
-> **A comprehensive, accessibility-first digital library platform supporting children with disabilities in childcare programs**
+> **Note**: This is a sanitized portfolio demonstration based on professional work. All sensitive information has been removed or replaced with generic placeholders.
+
+> **A comprehensive, accessibility-first digital library platform supporting educational programs**
 
 [![JavaScript](https://img.shields.io/badge/JavaScript-43KB-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://github.com)
 [![CSS3](https://img.shields.io/badge/CSS3-Professional-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://github.com)
@@ -9,13 +11,13 @@
 
 ## 🎯 **Executive Summary**
 
-Engineered a complete digital transformation of the University of Colorado Denver's specialized library system, serving the **Center for Innovative Design and Engineering (Demo Institution)**. This system manages equipment loans and training resources for childcare programs supporting children with disabilities across Colorado.
+Engineered a complete digital transformation of a major institution's specialized library system. This system manages equipment loans and training resources for educational programs supporting diverse learners across the region.
 
 **🏆 System Capabilities:**
 - **Enhanced accessibility** with WCAG 2.1 compliance features throughout
 - **Streamlined workflows** with automated form validation and responsive design
 - **Mobile-first design** enabling access across all device types
-- **Professional branding** with complete CU Denver visual identity integration
+- **Professional branding** with complete institutional visual identity integration
 
 ---
 
@@ -55,15 +57,15 @@ function tryNextCoverSource() {
 
 ### **1. Advanced Authentication & Branding System**
 ```css
-/* Dynamic institutional branding with CU Denver identity */
-.cide-login-wrapper {
+/* Dynamic institutional branding */
+.institution-login-wrapper {
   background: linear-gradient(90deg, #000 0%, #cfb87c 50%, #000 100%);
   box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
 ```
-- **Custom staff login interface** with university branding
+- **Custom staff login interface** with institutional branding
 - **Role-based access control** integration
-- **Professional visual hierarchy** using CU Denver brand standards
+- **Professional visual hierarchy** using brand standards
 
 ### **2. Intelligent Cover Image Management**
 - **Multi-source fallback system** for resource thumbnails
@@ -72,7 +74,7 @@ function tryNextCoverSource() {
 - **Accessibility-compliant** alt text and ARIA labels
 
 ### **3. Specialized Registration & Workflow System**
-- **Childcare program validation** with Colorado licensing integration
+- **Program validation** with licensing integration
 - **Multi-step form optimization** with real-time validation
 - **Equipment borrowing workflows** with acknowledgment tracking
 - **Training topic categorization** replacing traditional library search
@@ -124,7 +126,7 @@ if ($(window).width() < 768) {
 
 ```mermaid
 graph TD
-    A[University Portal] --> B[Authentication Layer]
+    A[Portal] --> B[Authentication Layer]
     B --> C[Role Management]
     C --> D[Program Registration]
     C --> E[Equipment Borrowing]
@@ -137,9 +139,9 @@ graph TD
 ```
 
 ### **Integration Points**
-- **Koha ILS Backend**: Seamless integration with library management
-- **University SSO**: CU Denver authentication systems
-- **Colorado Licensing API**: Real-time childcare license validation
+- **Library Management Backend**: Seamless integration with ILS
+- **Authentication Systems**: Institution SSO integration
+- **Licensing API**: Real-time license validation
 - **Responsive Framework**: Bootstrap-based with custom enhancements
 
 ---
@@ -159,7 +161,7 @@ sed 's/<pass>.*<\/pass>/<pass>[REDACTED]<\/pass>/g' config.xml
 ```
 - **Data privacy protection** ensuring no PII in repositories
 - **SQL injection prevention** with parameterized queries
-- **FERPA compliance** for educational institution requirements
+- **Educational compliance** for institution requirements
 - **Secure credential management** with environment variables
 
 ---
@@ -167,7 +169,7 @@ sed 's/<pass>.*<\/pass>/<pass>[REDACTED]<\/pass>/g' config.xml
 ## 📈 **Business Value Created**
 
 ### **System Features**
-- **Automated form validation** for childcare program registration
+- **Automated form validation** for program registration
 - **Responsive equipment checkout** process with acknowledgment forms
 - **Enhanced cover image loading** with intelligent fallback systems
 - **Accessible interface design** supporting assistive technologies
@@ -175,7 +177,7 @@ sed 's/<pass>.*<\/pass>/<pass>[REDACTED]<\/pass>/g' config.xml
 ### **Accessibility Implementation**
 - **Screen reader optimization** with comprehensive ARIA labeling
 - **Keyboard navigation enhancement** with focus management and skip links
-- **Color contrast compliance** using CU Denver accessible color palette
+- **Color contrast compliance** using accessible color palette
 - **Form validation** with real-time feedback and error announcements
 
 ---
@@ -183,19 +185,19 @@ sed 's/<pass>.*<\/pass>/<pass>[REDACTED]<\/pass>/g' config.xml
 ## 🎓 **Educational Technology Integration**
 
 **Specialized Domain Expertise:**
-- **Early childhood education** program requirements
-- **Disability services** accessibility standards  
-- **University research support** for academic initiatives
-- **State licensing compliance** for Colorado childcare programs
+- **Educational program** requirements and workflows
+- **Accessibility services** standards and implementation
+- **Research support** for academic initiatives
+- **State licensing compliance** for regulated programs
 
 ---
 
 ## 🚀 **Deployment & Maintenance**
 
 ### **Production Environment**
-- **DigitalOcean Infrastructure**: Cloud-based deployment
-- **MySQL Database**: Optimized queries and backup strategies
-- **Apache Web Server**: Performance tuning and security
+- **Cloud Infrastructure**: Modern cloud-based deployment
+- **Database**: Optimized queries and backup strategies
+- **Web Server**: Performance tuning and security
 - **SSL/TLS Encryption**: Industry-standard security protocols
 
 ### **Monitoring & Analytics**
@@ -216,7 +218,7 @@ sed 's/<pass>.*<\/pass>/<pass>[REDACTED]<\/pass>/g' config.xml
    **Solution**: Developed responsive card layouts with touch-optimized interactions
 
 3. **Challenge**: Staff login branding consistency
-   **Solution**: Created modular CSS system with CU Denver brand integration
+   **Solution**: Created modular CSS system with institutional brand integration
 
 ### **Code Architecture**
 - **Modular component structure** with separated concerns
@@ -233,53 +235,27 @@ This project demonstrates:
 - **Accessibility-first** engineering approach  
 - **Educational technology** domain expertise
 - **Performance optimization** and scalability planning
-- **Cross-functional collaboration** with university stakeholders
+- **Cross-functional collaboration** with institutional stakeholders
 - **Regulatory compliance** understanding (FERPA, ADA, State licensing)
 
 **Ready to bring this level of technical excellence and user-centered design to your organization.**
 
 ---
 
-*Built with passion for accessibility and educational equity • University of Colorado Denver • 2024-2025*
-
----
-
-## 🔒 **Note on Repository Contents**
-
-This repository contains both:
-- **Public showcase code** - Sanitized technical demonstrations
-- **Private operational documents** - Real system information for administrators
-
-**Files with real system information (private use):**
-- `HANDOVER-GUIDE.md` - Contains actual server details and contacts
-- `TROUBLESHOOTING.md` - Contains real emergency procedures
-- Some configuration exports may contain institutional details
-
-**Files sanitized for public viewing:**
-- All code in `customizations/` - Technical demonstrations only
-- `README.md` - Professional portfolio presentation
-
----
-
 ## 🔒 **Repository Information**
 
-This is the **public portfolio showcase** containing sanitized technical demonstrations.
+This is a **public portfolio showcase** containing sanitized technical demonstrations.
 
 **This repository contains:**
 - ✅ **Professional code samples** - Fully sanitized for public viewing
 - ✅ **Technical documentation** - Portfolio-focused presentation
-- ✅ **Clean commit history** - No sensitive information ever committed
+- ✅ **Clean commit history** - No sensitive information
 
-**All code in this repository has been sanitized:**
-- Generic institutional references ("Demo Institution" instead of real names)
-- Placeholder contact information (admin@example.org)
-- Demo URLs and branding (demo-library.org)
+**All code has been sanitized:**
+- Generic institutional references
+- Placeholder contact information
+- Demo URLs and branding
 - No real server paths, credentials, or operational details
-
-**For operational documentation:**
-- Real system information is maintained in a separate private repository
-- This public repository is purely for technical skill demonstration
-- All sensitive data has been removed for security
 
 ---
 
