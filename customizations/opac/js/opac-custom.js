@@ -11,6 +11,7 @@ $(document).ready(function() {
    * Staff Login Customization
    * Adds Demo Institution logo and styling to login page
    */
+// sourcery skip: avoid-function-declarations-in-blocks
   function customizeStaffLogin() {
     // Check if we're on the staff login page
     const $loginForm = $('#login, #loginform, .login-form, form[action*="auth.pl"]');
@@ -223,6 +224,13 @@ $(document).ready(function() {
   /**
    * FIXED Cover Display - Simplified image loading with better error handling
    */
+  /**
+   * Displays cover images for library items, providing enhanced loading and error handling.
+   * Attempts to load cover images from multiple sources and falls back to a styled placeholder if all fail.
+   *
+   * This function finds all relevant cover image containers, tries to load images from prioritized sources,
+   * and applies visual enhancements and accessibility improvements to both loaded images and placeholders.
+   */
   function displayCoverImages() {
     console.log("Starting enhanced cover image display");
     
@@ -265,7 +273,9 @@ $(document).ready(function() {
         let timeoutId = null;
         
         function tryNextCoverSource() {
-          if (imageLoaded) return; // Prevent multiple loads
+          if (imageLoaded) {
+            return;
+          } // Prevent multiple loads
           
           if (currentSourceIndex >= coverSources.length) {
             // All sources failed, create attractive placeholder
@@ -295,7 +305,9 @@ $(document).ready(function() {
           
           // Set up load handler
           img.onload = function() {
-            if (imageLoaded) return; // Prevent race conditions
+            if (imageLoaded) {
+              return;
+            } // Prevent race conditions
             
             clearTimeout(timeoutId);
             timeoutId = null;
@@ -352,7 +364,9 @@ $(document).ready(function() {
           
           // Set up error handler
           img.onerror = function() {
-            if (imageLoaded) return;
+            if (imageLoaded) {
+              return;
+            }
             
             clearTimeout(timeoutId);
             timeoutId = null;
@@ -368,7 +382,9 @@ $(document).ready(function() {
         }
         
         function createStyledPlaceholder(container, title) {
-          if (imageLoaded) return;
+          if (imageLoaded) {
+            return;
+          }
           imageLoaded = true;
           
           container.innerHTML = `
@@ -478,6 +494,12 @@ $(document).ready(function() {
   /**
    * Hide RSS links and improve accessibility
    */
+  /**
+   * Improves accessibility and usability of interactive elements on the page.
+   * Hides RSS links, manages keyboard focus styles, and ensures accessible names for interactive elements.
+   *
+   * This function also adds an aria-live region for dynamic updates to assist screen readers.
+   */
   function improveAccessibility() {
     // Hide RSS links
     $('a.rss-list-link').hide();
@@ -506,9 +528,15 @@ $(document).ready(function() {
         // Icon-only buttons need aria-labels
         const iconClass = $element.find('i.fa').attr('class');
         if (iconClass) {
-          if (iconClass.includes('fa-list')) $element.attr('aria-label', 'Lists');
-          if (iconClass.includes('fa-bookmark')) $element.attr('aria-label', 'Place hold');
-          if (iconClass.includes('fa-file')) $element.attr('aria-label', 'Pages');
+          if (iconClass.includes('fa-list')) {
+            $element.attr('aria-label', 'Lists');
+          }
+          if (iconClass.includes('fa-bookmark')) {
+            $element.attr('aria-label', 'Place hold');
+          }
+          if (iconClass.includes('fa-file')) {
+            $element.attr('aria-label', 'Pages');
+          }
           // Add more icon mappings as needed
         }
       }
@@ -522,6 +550,12 @@ $(document).ready(function() {
   
   /**
    * Fix cover image alt text and titles
+   */
+  /**
+   * Fixes and enhances alt text and title attributes for cover images.
+   * Ensures all images have appropriate alt text for accessibility and updates titles for clarity.
+   *
+   * This function targets local cover images and other images lacking alt attributes, setting descriptive text as needed.
    */
   function fixImageAttributes() {
     const itemTitle = $('h1.title').text().trim() || $('.title').first().text().trim();
@@ -546,6 +580,12 @@ $(document).ready(function() {
   
   /**
    * Registration form enhancements
+   */
+  /**
+   * Enhances the user registration form with additional instructions, section headers, and validation.
+   * Improves form organization, accessibility, and provides helpful guidance for users completing registration.
+   *
+   * This function also reorganizes address fields, adds validation for license numbers, and updates form styling.
    */
   function enhanceRegistrationForm() {
     // Add registration info alert
@@ -653,6 +693,12 @@ $(document).ready(function() {
   /**
    * Update all UI text and labels
    */
+  /**
+   * Updates various UI text and labels throughout the interface for clarity and consistency.
+   * Modifies search labels, headings, button text, and other interface elements to improve user experience.
+   *
+   * This function also updates placeholder text, navigation, and accessibility attributes where appropriate.
+   */
   function updateUIText() {
     // Search interface updates
     $('label[for="translControl1"]').text('Search the entire library...');
@@ -702,6 +748,12 @@ $(document).ready(function() {
   
   /**
    * Apply styling to various elements
+   */
+  /**
+   * Applies custom styling to various elements on the page for a cohesive visual appearance.
+   * Styles item types, buttons, containers, and navigation elements to match institutional branding.
+   *
+   * This function also adjusts layout and visual cues for interactive elements and groups.
    */
   function applyStyling() {
     // Item type styling
@@ -789,6 +841,12 @@ $(document).ready(function() {
   /**
    * Hide/remove unwanted elements
    */
+  /**
+   * Hides or removes unwanted elements from the page to declutter the user interface.
+   * Targets specific selectors for hiding or removal and marks hidden content for accessibility.
+   *
+   * This function also applies CSS-based hiding for certain elements and removes others from the DOM.
+   */
   function hideUnwantedElements() {
     // Elements to hide
     const hideSelectors = [
@@ -849,9 +907,17 @@ $(document).ready(function() {
   /**
    * Enhance borrower request form
    */
+  /**
+   * Enhances the borrower request form with additional instructions and acknowledgements.
+   * Adds new titles, subtitles, and agreement statements to clarify borrower responsibilities.
+   *
+   * This function also hides redundant headings and updates confirmation text for clarity.
+   */
   function enhanceBorrowerRequest() {
     const $holdsContainer = $('#holds');
-    if (!$holdsContainer.length) return;
+    if (!$holdsContainer.length) {
+      return;
+    }
     
     $holdsContainer.prepend(`
       <div class="new-title" style="font-size: 1.5em; font-weight: bold; text-align: center; margin-bottom: 5px;">
@@ -882,9 +948,17 @@ $(document).ready(function() {
   /**
    * Enhance suggestion form
    */
+  /**
+   * Enhances the suggestion form for users to recommend new items.
+   * Replaces default fields with a custom set of fields and improves accessibility with proper labels and legends.
+   *
+   * This function also restructures the form layout for clarity and usability.
+   */
   function enhanceSuggestionForm() {
     const form = document.getElementById('add_suggestion_form');
-    if (!form) return;
+    if (!form) {
+      return;
+    }
     
     $(form).find('li').remove();
     
@@ -927,9 +1001,15 @@ $(document).ready(function() {
   /**
    * Enhance user suggestions display
    */
+  /**
+   * Enhances the display of user suggestions for improved readability.
+   * Removes unnecessary paragraphs and centers headings for a cleaner presentation.
+   */
   function enhanceUserSuggestions() {
     const $userSuggestions = $('#usersuggestions');
-    if (!$userSuggestions.length) return;
+    if (!$userSuggestions.length) {
+      return;
+    }
     
     $userSuggestions.find('p').remove();
     $userSuggestions.find('h1, h2').css('text-align', 'center');
@@ -937,6 +1017,10 @@ $(document).ready(function() {
   
   /**
    * Add navigation enhancements
+   */
+  /**
+   * Adds enhancements to the main navigation menu.
+   * Appends a Home link to the navigation bar for easier access to the main page.
    */
   function enhanceNavigation() {
     const $nav = $('.nav');
@@ -953,6 +1037,12 @@ $(document).ready(function() {
    * Responsive table handling (throttled for performance)
    */
   let tableHandlerActive = false;
+  /**
+   * Makes tables responsive for better usability on mobile devices.
+   * Adjusts table rows and cells for small screens and enables row-based navigation.
+   *
+   * This function also restores the original table layout on larger screens.
+   */
   function makeTableResponsive() {
     if ($(window).width() < 768) {
       $('.covercol').hide();
@@ -1012,9 +1102,15 @@ $(document).ready(function() {
   /**
    * Responsive button sizing
    */
+  /**
+   * Adjusts the size and position of the search button based on screen width.
+   * Scales and repositions the button for optimal appearance on desktop and mobile devices.
+   */
   function setButtonSize() {
     const $searchBtn = $('#searchsubmit');
-    if (!$searchBtn.length) return;
+    if (!$searchBtn.length) {
+      return;
+    }
     
     if (window.innerWidth >= 768) {
       $searchBtn.css('transform', 'translateY(22px) scale(1.2)');
@@ -1026,8 +1122,14 @@ $(document).ready(function() {
   /**
    * Add back to top button for mobile
    */
+  /**
+   * Adds a "Back to Top" button for mobile users to quickly return to the top of the page.
+   * Displays the button on scroll and provides smooth scrolling and focus management for accessibility.
+   */
   function addBackToTopButton() {
-    if ($('#backToTop').length) return;
+    if ($('#backToTop').length) {
+      return;
+    }
     
     const $backToTopBtn = $(`
       <button id="backToTop" style="display:none; position:fixed; bottom:20px; right:20px; z-index:1000; 
@@ -1052,11 +1154,17 @@ $(document).ready(function() {
   /**
    * Reorganize elements layout
    */
+  /**
+   * Reorganizes layout elements for improved structure and readability.
+   * Groups columns into rows and updates the container with the new layout.
+   */
   function rearrangeElements() {
     const columns = document.querySelectorAll('.col-sm-6.col-lg-3');
     const container = document.querySelector('#advsearch-tab-itemtypes_panel fieldset');
     
-    if (!columns.length || !container) return;
+    if (!columns.length || !container) {
+      return;
+    }
     
     const fragment = document.createDocumentFragment();
     
@@ -1079,6 +1187,16 @@ $(document).ready(function() {
   /**
    * Debounce function for performance (fixed implementation)
    */
+  /**
+   * Returns a debounced version of the provided function to limit execution frequency.
+   * Ensures the function is called only after a specified wait time has elapsed since the last invocation.
+   *
+   * Args:
+   *   func: The function to debounce.
+   *   wait: The number of milliseconds to wait before invoking the function.
+   * Returns:
+   *   A debounced function.
+   */
   function debounce(func, wait) {
     let timeout;
     return function executedFunction(...args) {
@@ -1095,6 +1213,10 @@ $(document).ready(function() {
    * Modern DOM observer to replace deprecated DOMNodeInserted
    */
   let observer = null;
+  /**
+   * Sets up a MutationObserver to monitor DOM changes and trigger updates as needed.
+   * Observes for added nodes and efficiently handles dynamic content updates.
+   */
   function setupDOMObserver() {
     // Only observe if MutationObserver is available
     if (typeof MutationObserver !== 'undefined') {
