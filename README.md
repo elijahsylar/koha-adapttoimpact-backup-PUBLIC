@@ -146,6 +146,48 @@ graph TD
 
 ---
 
+## 📸 **System Screenshots**
+
+### **Staff Interface**
+
+#### Learning Center & Training Resources
+![Staff Learning Center](images/staff-learning-center.png)
+*Staff Learning Center main interface with training resources*
+
+![Staff Training Videos](images/staff-training-videos.png)
+*Comprehensive video training library for staff*
+
+![Staff Learning Center Main](images/staff-learning-center-main.png)
+*Main dashboard for staff learning resources*
+
+#### System Configuration
+![Staff Notices and Slips](images/staff-notices-and-slips.png)
+*Notices and slips configuration interface*
+
+![Staff Authorized Values](images/staff-authorized-values.png)
+*Authorized values management for system customization*
+
+### **Public Access Catalog (OPAC)**
+
+#### Main Navigation
+![OPAC Home Page](images/opac-home-page.png)
+*Public-facing home page with intuitive navigation*
+
+![OPAC Spotlights](images/opac-spotlights-page.png)
+*Featured resources and spotlights section*
+
+![OPAC Office Hours](images/opac-office-hours-page.png)
+*Office hours and support information*
+
+#### Search Functionality
+![OPAC Search by Training Topics](images/opac-search-by-training-topics.png)
+*Topic-based search interface for training materials*
+
+![OPAC Search by Tags](images/opac-search-by-tags.png)
+*Tag-based search for enhanced discoverability*
+
+---
+
 ## 🔧 **Development & DevOps Skills**
 
 ### **Version Control & Deployment**
